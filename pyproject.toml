@@ -1,0 +1,17 @@
+[project]
+name = "qrcode49"
+version = "2026.01.14.154634"
+description = "二维码生成与解析工具"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "opencv-python>=4.12.0.88",
+    "qrcode[pil]>=8.2",
+]
+
+[project.scripts]
+qrcode49 = "qrcode49.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
