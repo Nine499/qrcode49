@@ -1,6 +1,6 @@
 [project]
 name = "qrcode49"
-version = "2026.01.21.153342"
+version = "2025.01.23.185700"
 description = "简洁友好的二维码生成与解析工具"
 requires-python = ">=3.12"
 dependencies = [
