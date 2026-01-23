@@ -1,8 +1,10 @@
 """二维码核心功能"""
 
 from pathlib import Path
-from qrcode import QRCode, constants, decode as qr_decode
+from qrcode import QRCode, constants
 from PIL import Image
+import cv2
+import numpy as np
 from qrcode49.config import (
     DEFAULT_BOX_SIZE,
     DEFAULT_BORDER,
@@ -93,17 +95,19 @@ def decode_qrcode(image_path: str) -> str:
         raise FileNotFoundError(f"图片文件不存在: {image_path}")
 
     try:
-        # 打开图片
-        img = Image.open(image_path)
+        # 读取图片
+        img = cv2.imread(image_path)
+        if img is None:
+            raise ValueError("无法读取图片文件")
 
         # 解码二维码
-        decoded_list = qr_decode(img)
+        detector = cv2.QRCodeDetector()
+        data, _, _ = detector.detectAndDecode(img)
 
-        if not decoded_list:
+        if not data:
             raise ValueError("未在图片中检测到二维码")
 
-        # 返回第一个解码结果
-        return decoded_list[0].data.decode("utf-8")
+        return data
 
     except Exception as e:
         raise ValueError(f"解析二维码失败: {e}")
