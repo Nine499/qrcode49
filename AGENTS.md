@@ -45,6 +45,9 @@ echo "test" > test.txt && uv run qrcode49 test.txt test.png
 # 测试解析
 uv run qrcode49 test.png test_output.txt && cat test_output.txt
 
+# 测试交互式模式
+uv run qrcode49
+
 # 清理
 rm test.txt test.png test_output.txt
 ```
