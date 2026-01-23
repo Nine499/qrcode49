@@ -9,3 +9,6 @@ uv.lock
 
 # Virtual environments
 .venv
+
+# Git worktrees
+.worktrees/
