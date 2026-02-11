@@ -1,0 +1,22 @@
+[project]
+name = "qrcode49"
+version = "2026.02.11.205255"
+description = "面向技术用户的二维码生成与解析命令行工具"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Nine499", email = "14026156+Nine499@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "opencv-python>=4.13.0.92",
+    "pillow>=12.1.1",
+    "qrcode>=8.2",
+]
+
+[project.scripts]
+qrcode49 = "qrcode49.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.10.2,<0.11.0"]
+build-backend = "uv_build"
